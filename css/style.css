@@ -1,78 +1,85 @@
-@import url('http://fonts.googleapis.com/css?family=Nunito:wght@200;300;400;600;700&display=swap');
+@import url("http://fonts.googleapis.com/css?family=Nunito:wght@200;300;400;600;700&display=swap");
 
-:root{
-    --teal: #2ec1ac;
-    --teal_hover:#279e8c;
+:root {
+  --teal: #2ec1ac;
+  --teal_hover: #279e8c;
 }
 
-html{
-    font-family: 'Nunito', sans-serif;
-    margin: 0;padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    outline: none;
-    border: none;
-    text-transform: capitalize;
-    transition: all .2s linear; 
+html {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+  transition: all 0.2s linear;
 }
 
-body{
-    background-color: #f3f2f2;
+body {
+  background-color: #f3f2f2;
 }
 
-.h-font{
-    font-family: 'Merienda', cursive;
+.h-font {
+  font-family: "Merienda", cursive;
 }
 
-.custom-bg{
-    background-color: var(--teal);
+.custom-bg {
+  background-color: var(--teal);
 }
 
-.custom-bg:hover{
-    background-color: var(--teal_hover);
+.custom-bg:hover {
+  background-color: var(--teal_hover);
 }
 
-.availability-form{
-    position: relative;
-    margin-top: -50px;
-    z-index: 2;
+.availability-form {
+  position: relative;
+  margin-top: -50px;
+  z-index: 2;
 }
 
 /* 
 FACILITIE
 ABOUT
 CONTACT */
-.h-line{
-    width: 150px;
-    margin: 0 auto;
-    height: 1.7px;
+.h-line {
+  width: 150px;
+  margin: 0 auto;
+  height: 1.7px;
 }
 
-.pop:hover{
-    border-top-color:var(--teal) !important;
-    transform: scale(1.03);
-    transition: all 0.3s;
+.pop:hover {
+  border-top-color: var(--teal) !important;
+  transform: scale(1.03);
+  transition: all 0.3s;
 }
 
-.box{
-    border-top-color: var(--teal_hover) !important ;
+.box {
+  border-top-color: var(--teal_hover) !important ;
+}
+
+/* ADMIN LOGIN PANEL */
+.login-form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 400px;
+}
+
+.custom-alert{
+  position: fixed;
+  top: 25px;
+  right: 25px;
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-@media (max-width:575px){
-    .availability-form{
-        margin-top: 25px;
-        padding: 0 35px;
-    }
+@media (max-width: 575px) {
+  .availability-form {
+    margin-top: 25px;
+    padding: 0 35px;
+  }
 }
+
