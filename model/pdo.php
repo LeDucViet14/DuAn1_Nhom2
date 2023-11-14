@@ -67,5 +67,18 @@ function pdo_query_one($sql){
         unset($conn);
     }
 }
+
+//hàm check validate
+function filteration($data){
+    foreach($data as $key => $value){
+        $data[$key] = trim($value);
+        $data[$key] = stripcslashes($value);
+        $data[$key] = htmlspecialchars($value);
+        $data[$key] = strip_tags($value);
+    }
+    return $data;
+}
 pdo_get_connection();
+
+
 ?>
