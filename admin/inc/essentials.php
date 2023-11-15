@@ -3,7 +3,7 @@ function adminLogin()
 {
     session_start();
     if (!(isset($_SESSION['adminLogin']) && $_SESSION['adminLogin'] == true)) {
-        header("location:admin/index.php");
+        header("location:index.php");
     }
 }
 

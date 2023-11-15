@@ -55,7 +55,25 @@ div.login-form {
         height: auto;
         width: 100%;
     }
-    #main-content{
+
+    #main-content {
         margin-top: 60px;
     }
+}
+
+
+.iframe-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+
+}
+
+.responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
