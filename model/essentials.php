@@ -8,8 +8,8 @@
     }
 
     function adminLogin(){
-        if(!(isset($_SESSION['admin']) && $_SESSION['admin'] == true)){
-            header('location: index.php?act=login');
+        if(!(isset($_SESSION['admin']))){
+            header('location: login.php');
         }
     }
 ?>

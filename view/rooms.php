@@ -69,43 +69,29 @@
                                 <img src="images/rooms/1.jpg" class="img-fluid rounded" alt="room">
                             </div>
                             <div class="col-md-5 px-lg-3 px-md-3 px-0">
-                                <?php foreach($rooms as $room){
-                                    echo '<h5 class="mb-3">'.$room['name'].'</h5>';
-                                } ?>
+                                <h5 class="mb-3">Name room</h5>
                                 <div class="features mb-3">
                                     <h6 class="mb-1">Features</h6>
-                                    <?php
-                                        foreach($features as $feature){
-                                            echo '<span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                                    '.$feature['name'].'
-                                                </span>';
-                                        }
-                                    ?>
+                                    <span class="badge rounded-pill text-bg-light text-dark text-wrap">kitchen</span>
                                 </div>
                                 <div class="facilities mb-3">
                                     <h6 class="mb-1">Facilities</h6>
-                                    <?php
-                                        foreach($facilities as $facility){
-                                            echo '<span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                                    '.$facility['name'].'
-                                                </span>';
-                                        }
-                                    ?>
+                                    <span class="badge rounded-pill text-bg-light text-dark text-wrap">wifi</span>
                                     
                                     
                                 </div>
                                 <div class="guests">
                                     <h6 class="mb-1">Guests</h6>
                                     <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                        <?php echo $room['children'] ?> Children
+                                        3 Children
                                     </span>
                                     <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                        <?php echo $room['adult'] ?> Adults
+                                        2 Adults
                                     </span>
                                 </div>
                             </div>
                             <div class="col-md-2 text-center mt-lg-0 mt-md-0 mt-4">
-                                <h6 class="mb-4">$<?php echo $room['price'] ?> per night</h6>
+                                <h6 class="mb-4">120.000 per night</h6>
                                 <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book now</a>
                                 <a href="index.php?act=room_details" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
                             </div>
