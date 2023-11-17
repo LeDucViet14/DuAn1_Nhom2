@@ -67,3 +67,7 @@ var swiper = new Swiper(".swiper-testimonials", {
     }
   });
 
+  function reset(){
+    location.reload();
+  }
+

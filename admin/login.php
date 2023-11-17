@@ -1,7 +1,8 @@
 <?php
-  if(isset($_SESSION['admin']) && $_SESSION['admin'] == true){
-    header('location: index.php?act=dashboard');
-  }
+  session_start();
+  // if(isset($_SESSION['admin']) && $_SESSION['admin'] == true){
+  //   header('location: index.php?act=dashboard');
+  // }
 ?>
 
 
@@ -16,7 +17,7 @@
 
 <body class="bg-light">
   <div class="login-form text-center rounded bg-white shadow overflow-hidden">
-    <form method="POST" action='index.php?act=login'>
+    <form method="POST" action="login.php">
       <h4 class="bg-dark text-white py-3">ADMIN LOGIN PANEL</h4>
       <div class="p-4">
         <div class="mb-3">
@@ -33,7 +34,25 @@
   </div>
 
 
-  <?php include 'inc/scripts.php' ?>
+  <?php 
+    include '../model/pdo.php';
+    include '../model/login_admin.php';
+    include '../model/essentials.php';
+    include 'inc/scripts.php';
+    if(isset($_POST['login'])){
+      $frm_data = filteration($_POST);
+          $check_admin = dangnhap_admin($frm_data['admin_name'],$frm_data['admin_pass']);
+          if(is_array($check_admin)){
+            $_SESSION['admin'] = $check_admin;
+            print_r($_SESSION['admin']);
+            alert("success", "Login success!");
+            header("location: index.php");
+          }else{
+            alert("error", "Login failed!");
+          }
+    }
+  
+  ?>
 
 
 </body>

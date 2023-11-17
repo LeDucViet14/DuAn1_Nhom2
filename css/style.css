@@ -60,21 +60,36 @@ CONTACT */
 }
 
 /* ADMIN LOGIN PANEL */
-.login-form{
+.login-form {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   width: 400px;
 }
 
-.custom-alert{
+.custom-alert {
   position: fixed;
-  top: 25px;
+  top: 100px;
   right: 25px;
+  z-index: 1000 !important;
 }
 
+#dashboard-menu {
+  position: fixed;
+  height: 100%;
+}
 
+@media screen and (max-width: 992px) {
+  #dashboard-menu {
+    height: auto;
+    width: 100%;
+  }
+
+  #main-content {
+    margin-top: 60px;
+  }
+}
 
 @media (max-width: 575px) {
   .availability-form {
@@ -82,4 +97,3 @@ CONTACT */
     padding: 0 35px;
   }
 }
-
