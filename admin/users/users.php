@@ -43,7 +43,7 @@
                                         $suauser = "index.php?act=suausers&id=" . $id;
                                         echo '<tr>';
                                         echo '<td>' . $count++ . '</td>';
-                                        echo '<td><img width="75px" src="./' . $profile . '" alt=""></td>';
+                                        echo '<td><img width="75px" src="../upload/' . $profile . '" alt=""></td>';
                                         echo '<td>' . $name . '</td>';
                                         echo '<td>' . $email . '</td>';
                                         echo '<td>' . $address . '</td>';

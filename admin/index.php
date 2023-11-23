@@ -49,7 +49,7 @@ if (isset($_GET['act'])) {
         $email = $_POST['email'];
         $password = $_POST['password'];
         $img = $_FILES["profile"]["name"];
-        $target_dir = "./";
+        $target_dir = "../upload/";
         $target_file = $target_dir . basename($img);
         $update_user = update_user($id, $name, $phone, $dob, $address, $email, $password, $target_file);
         if (move_uploaded_file($_FILES["profile"]["tmp_name"], $target_file)) {
@@ -68,3 +68,6 @@ if (isset($_GET['act'])) {
       break;
   }
 }
+
+?>
+<link rel="stylesheet" href="../upload/">
