@@ -5,7 +5,7 @@
             <h2 class="fw-bold">PROFILE</h2>
             <div>
                 <a href="index.php?act=home" class="text-secondary text-decoration-none">HOME</a>
-                <span class="text-secondary"> > </span>
+                <span class="text-secondary"> </span>
                 <a class="text-secondary text-decoration-none" href="">PROFILE</a>
             </div>
         </div>

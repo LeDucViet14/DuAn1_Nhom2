@@ -17,6 +17,9 @@
                                  <a class="nav-link text-white" href="#">Dashboard</a>
                              </li>
                              <li class="nav-item">
+                                 <a class="nav-link text-white" href="index.php?act=listfacilities">Facilities</a>
+                             </li>
+                             <li class="nav-item">
                                  <a class="nav-link text-white" href="#">Rooms</a>
                              </li>
                              <li class="nav-item">

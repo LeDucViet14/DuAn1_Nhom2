@@ -43,7 +43,7 @@
                         <?php
                             if(isset($_SESSION['user']) && $_SESSION['user'] == true){
                                 extract($_SESSION['user']);
-                                // print_r($profile);
+                               // print_r($profile);
                                 // print_r($profile);
                                 echo '
                                 <div class="btn-group">

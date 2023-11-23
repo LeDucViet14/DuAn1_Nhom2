@@ -74,6 +74,14 @@ CONTACT */
   right: 25px;
   z-index: 1000 !important;
 }
+.frmdsloai table th {
+  padding: 20px;
+  background-color: #ccc;
+}
+.header_admin h1 {
+  font-size: 2vv;
+}
+/* css cho admin */
 
 #dashboard-menu {
   position: fixed;

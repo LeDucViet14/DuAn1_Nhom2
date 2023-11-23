@@ -68,7 +68,7 @@
                     <div class="bg-white rounded shadow p-4 border-top border-4 border-dark pop">
                         <div class="d-flex align-items-center mb-2">
                             <img src="images/facilities/IMG_43553.svg" alt="" width="40px">
-                            <h5 class="m-0 ms-2">Wifi</h5>
+                            <div class="m-0 ms-2">Wifi</div>
                         </div>
                         <p>Wifi toc do nhanh Wifi toc do nhanh Wifi toc do nhanh Wifi toc 
                             Wifi toc do nhanh Wifi toc do nhanh Wifi toc do nhanh 
