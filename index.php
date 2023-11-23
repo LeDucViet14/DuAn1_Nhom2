@@ -6,13 +6,21 @@
     include "model/essentials.php";
     include "model/rooms.php";
     include "model/login_user.php";
+    include "model/settings.php";
+    include "model/room_type.php";
+    include "model/comments.php";
     include "global.php";
-    include "view/header.php";
     $contact_home = loadContact();
+    $general_settings = loadall_general_settings();
+    $ba_room_type = load_3_room_type();
+    // print_r($all_room_type);
+    $all_room_type = loadall_room_type();
+    include "view/header.php";
     if(isset($_GET['act']) && ($_GET['act'] != "")){
         $act = $_GET['act'];
         switch ($act) {
             case 'home':
+                $all_comments = loadall_comment();
                 include "view/home.php";
                 break;
 
@@ -34,7 +42,12 @@
                 break;
 
             case 'room_details':
-                include 'view/rooms_details.php';
+                if(isset($_GET['id']) && $_GET['id'] >0){
+                    $one_room_type = load_one_room_type($_GET['id']);
+                    $comments = load_comments($_GET['id']);
+
+                    include 'view/rooms_details.php';
+                }
                 break;
 
             case 'register':
