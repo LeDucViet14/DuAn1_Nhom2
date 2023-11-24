@@ -7,7 +7,7 @@ adminLogin();
 include './inc/links.php';
 include './inc/scripts.php';
 include 'header.php';
-include '../admin/model/users.php';
+include '../model/users.php';
 
 if (isset($_GET['act'])) {
   $act = $_GET['act'];
