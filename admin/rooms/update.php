@@ -1,14 +1,14 @@
 
 <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                    <form action="index.php?act=update_room_type" id="add_room_form" method="POST" enctype="multipart/form-data">
+                    <form action="index.php?act=update_room" id="" method="POST" enctype="multipart/form-data">
                         <div class="modal-header">
                             <h5 class="modal-title mt-3 mb-5">Update room</h5>
                             
                         </div>
                         <?php
-                            if(is_array($one_room_type)){
-                                extract($one_room_type); 
+                            if(is_array($one_room)){
+                                extract($one_room); 
                             }
                             $hinhpath = './'.$img; 
                             // if(is_file($hinhpath)){
@@ -41,6 +41,17 @@
                                         <input name="img" type="file" class="form-control shadow-none" value="<?=$hinhpath?>">
                                         <?php echo '<img src="'.$hinhpath.'" class="w-100">'; ?>
                                         
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Room_type</label>
+                                        <select name="idroom_type" id="" class="form-control shadow-none">
+                                        <?php
+                                                foreach($list_room_type as $rt){
+                                                    echo '<option '.($id_room_type ? ($id_room_type == $rt['id'] ? "selected" : ""):"").'  value="'.$rt['id'].'">'.$rt['name'].'</option>';
+                                                    // echo 1;
+                                                }
+                                            ?>
+                                        </select>
                                     </div>
                                     <div class="col-md-12 mb-3">
                                         <label class="form-label">Description</label>
@@ -106,8 +117,8 @@
                             </div>
 
                             <div class="text-center my-1">
-                                <input type="hidden" name="room_type_id" id="idroom" value="<?=$id?>">
-                                <button name="update_room_type" type="submit" class="btn btn-dark shadow-none">Update</button>
+                                <input type="hidden" name="room_id" id="idroom" value="<?=$id?>">
+                                <button name="update_room" type="submit" class="btn btn-dark shadow-none">Update</button>
                             </div>
                         </div>
                     </form>

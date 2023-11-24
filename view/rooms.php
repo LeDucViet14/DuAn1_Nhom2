@@ -64,9 +64,10 @@
 
                 <div class="col-lg-9 col-md-12 px-4">
                     <?php
-                        foreach($all_room_type as $rt){
+                        foreach($all_room as $room){
                             // print_r($rt);
-                            extract($rt);
+                            extract($room);
+                            $link_book = "index.php?act=confirm_booking&id=$id";
                             $link = "index.php?act=room_details&id=$id";
                             $hinhpath = './admin'.$img;
                             echo '
@@ -96,16 +97,16 @@
                                     <div class="guests">
                                         <h6 class="mb-1">Guests</h6>
                                         <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                            3 Children
+                                            '.$children.' Children
                                         </span>
                                         <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                            2 Adults
+                                            '.$adult.' Adults
                                         </span>
                                     </div>
                                 </div>
                                 <div class="col-md-2 text-center mt-lg-0 mt-md-0 mt-4">
-                                    <h6 class="mb-4">120.000 per night</h6>
-                                    <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book now</a>
+                                    <h6 class="mb-4">'.$price.' per night</h6>
+                                    <a href="'.$link_book.'" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book now</a>
                                     <a href="'.$link.'" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
                                 </div>
                             </div>

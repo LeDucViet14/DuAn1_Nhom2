@@ -72,10 +72,11 @@
         <div class="container">
             <div class="row">
                 <?php
-                    foreach($ba_room_type as $rt){
+                    foreach($three_rooms as $room){
                         // echo "<pre>";
-                        extract($rt);
+                        extract($room);
                         $link = "index.php?act=room_details&id=$id";
+                        $link_book = "index.php?act=confirm_booking&id=$id";
                         $hinhpath = './admin'.$img;
                         // print_r($hinhpath);
 
@@ -126,7 +127,7 @@
                                     </span>
                                 </div>
                                 <div class="d-flex justify-content-evenly mb-1">
-                                    <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Book now</a>
+                                    <a href="'.$link_book.'" class="btn btn-sm text-white custom-bg shadow-none">Book now</a>
                                     <a href="'.$link.'" class="btn btn-sm btn-outline-dark shadow-none">More details</a>
                                 </div>
                             </div>

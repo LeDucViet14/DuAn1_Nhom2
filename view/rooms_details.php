@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 <?php
-                    extract($one_room_type);
+                    extract($one_room);
                     $hinhpath = './admin'.$img;
                 ?>
                 <div class="col-lg-12 mb-4 my-5 px-4">
