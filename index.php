@@ -12,15 +12,15 @@
     include "global.php";
     $contact_home = loadContact();
     $general_settings = loadall_general_settings();
-    $ba_room_type = load_3_room_type();
+    $three_rooms = load_3_room();
     // print_r($all_room_type);
-    $all_room_type = loadall_room_type();
+    $all_comments = loadall_comment();
+    $all_room = loadall_room();
     include "view/header.php";
     if(isset($_GET['act']) && ($_GET['act'] != "")){
         $act = $_GET['act'];
         switch ($act) {
             case 'home':
-                $all_comments = loadall_comment();
                 include "view/home.php";
                 break;
 
@@ -43,10 +43,37 @@
 
             case 'room_details':
                 if(isset($_GET['id']) && $_GET['id'] >0){
-                    $one_room_type = load_one_room_type($_GET['id']);
+                    $one_room = load_one_room($_GET['id']);
+                    // $comments = load_comments($_GET['id']);
                     $comments = load_comments($_GET['id']);
-
                     include 'view/rooms_details.php';
+                }
+                break;
+            
+            case 'confirm_booking':
+                if(!isset($_SESSION['user'])){
+                    include 'view/home.php';
+                    alert("erorr","You are not logged in");
+                }
+                if(isset($_GET['id']) && $_GET['id'] >0){
+                    $one_room = load_one_room($_GET['id']);
+                }
+
+                include 'view/confirm_booking.php';
+                break;
+
+            case "pay_now":
+                if(isset($_POST['paynow'])){
+                    $today = new DateTime(date("d-m-Y"));
+                    // $today = date("d-m-Y");
+                    $checkin = date("d/m/Y", strtotime($_POST['checkin']));
+                    $checkout = date("d/m/Y", strtotime($_POST['checkout']));
+                    // if( $checkin <   $today ){
+                    //     alert("erorr","abc");
+                        
+                    // }
+                    $total_date = $today;
+                    // print_r($total_date);    
                 }
                 break;
 
@@ -168,6 +195,7 @@
                 }
                 include "view/profile.php";
                 break;
+            
 
             default:
             include "view/home.php";

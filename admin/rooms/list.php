@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - room type</title>
+    <title>Admin - room </title>
     <link rel="stylesheet" href="inc/links.php">
 </head>
 <body>
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-10 ms-auto p-4 overflow-hidden">
-                <h3 class="mb-4">ROOM TYPE</h3>
+                <h3 class="mb-4">ROOM</h3>
 
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
@@ -34,8 +34,8 @@
                                 </tr>
                             </thead>
                             <?php
-                                foreach($list_room_type as $rt){
-                                    extract($rt);
+                                foreach($all_rooms as $room){
+                                    extract($room);
                                     echo '
                                     <tbody>
                                         <tr class="align-middle">
@@ -53,12 +53,12 @@
                                             <td><img width="50px" src="'.$img.'" alt=""></td>
                                             
                                             <td>
-                                                <a href="?act=edit_room_type&id='.$id.'">
+                                                <a href="?act=edit_room&id='.$id.'">
                                                     <button type="button" class="btn btn-primary shadow-none btn-sm" data-bs-toggle="modal" >
                                                         <i class="fa-regular fa-pen-to-square"></i>
                                                     </button>
                                                 </a>
-                                                <a href="?act=delete_room_type&id='.$id.'">
+                                                <a href="?act=delete_room&id='.$id.'">
                                                     <button type="button" class="btn btn-primary shadow-none btn-sm" data-bs-toggle="modal" >
                                                         <i class="fa-regular fa-trash-can"></i>
                                                     </button>
@@ -84,7 +84,7 @@
             aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-                    <form action="index.php?act=add_room_type" id="" method="POST" enctype="multipart/form-data">
+                    <form action="index.php?act=add_room" id="" method="POST" enctype="multipart/form-data">
                         <div class="modal-header">
                             <h5 class="modal-title">Add room type</h5>
                             <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal"
@@ -127,6 +127,69 @@
                                         <label class="form-label">Image</label>
                                         <input name="img" type="file" class="form-control shadow-none" required>
                                     </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label" >Room Type</label>
+                                        <select name="id_room_type" id="" class="form-control shadow-none">
+                                        <?php
+                                            foreach($list_room_type as $rt){
+                                                echo '<option value="'.$rt['id'].'">'.$rt['name'].'</option>';
+                                            }
+                                        ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label">Description</label>
+                                        <textarea name="description" class="form-control shadow-none" id="" cols="30" rows="5"></textarea>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <label class="form-label" style="color:red;">*Attention*</label><br>
+                                        <label class="form-label" style="color:red;">Existing facilities:</label>
+                                        <?php
+                                            foreach($facilities as $faci){
+                                                print_r($faci['name']);
+                                                echo ' - ';
+                                            }
+                                        ?><br>
+                                        <label class="form-label" style="color:red;">Existing features:</label>
+                                        <?php
+                                            foreach($features as $feature){
+                                                print_r($feature['name']);
+                                                echo ' - ';
+                                            }
+                                        ?>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Facilities1</label>
+                                        <input name="Facilities1" type="text" class="form-control shadow-none" >
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Facilities2</label>
+                                        <input name="Facilities2" type="text" class="form-control shadow-none">
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Facilities3</label>
+                                        <input name="Facilities3" type="text" class="form-control shadow-none">
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Facilities4</label>
+                                        <input name="Facilities4" type="text" class="form-control shadow-none">
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Features1</label>
+                                        <input name="Features1" type="text" class="form-control shadow-none">
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Features2</label>
+                                        <input name="Features2" type="text" class="form-control shadow-none">
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Features3</label>
+                                        <input name="Features3" type="text" class="form-control shadow-none">
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <label class="form-label">Features4</label>
+                                        <input name="Features4" type="text" class="form-control shadow-none">
+                                    </div>
 
                                     
                                     
@@ -134,7 +197,7 @@
                             </div>
 
                             <div class="text-center my-1">
-                                <button name="add_room_type" type="submit" class="btn btn-dark shadow-none">Add Room Type</button>
+                                <button name="add_room" type="submit" class="btn btn-dark shadow-none">Add Room Type</button>
                             </div>
                         </div>
                     </form>

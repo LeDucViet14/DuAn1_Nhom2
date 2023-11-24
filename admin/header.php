@@ -17,13 +17,13 @@
                                  <a class="nav-link text-white" href="#">Dashboard</a>
                              </li>
                              <li class="nav-item">
-                                 <a class="nav-link text-white" href="index.php?act=rooms">Rooms</a>
+                                 <a class="nav-link text-white" href="index.php?act=room_type">Rooms Type</a>
                              </li>
                              <li class="nav-item">
                                  <a class="nav-link text-white" href="#">Users</a>
                              </li>
                              <li class="nav-item">
-                                 <a class="nav-link text-white" href="index.php?act=room_type">Room Type</a>
+                                 <a class="nav-link text-white" href="index.php?act=rooms">Rooms</a>
                              </li>
                              <li class="nav-item">
                                  <a class="nav-link text-white" href="index.php?act=settings">Settings</a>
