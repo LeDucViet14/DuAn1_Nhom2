@@ -23,6 +23,9 @@
                                 <a class="nav-link text-white" href="index.php?act=users">Users</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link text-white" href="index.php?act=cmt">Comments</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link text-white" href="index.php?act=settings">Settings</a>
                             </li>
                         </ul>

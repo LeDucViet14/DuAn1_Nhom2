@@ -8,6 +8,7 @@ include './inc/links.php';
 include './inc/scripts.php';
 include 'header.php';
 include '../model/users.php';
+include '../model/cmt.php';
 
 if (isset($_GET['act'])) {
   $act = $_GET['act'];
@@ -18,6 +19,7 @@ if (isset($_GET['act'])) {
     case 'settings':
       include "settings.php";
       break;
+      //users
     case 'users':
       // $sql = "SELECT * FROM user_cred";
       // $rows = pdo_query($sql);
@@ -61,6 +63,19 @@ if (isset($_GET['act'])) {
       $list_user = loadall_user();
       include "./users/users.php";
       break;
+      //bình luận 
+    case 'cmt':
+      $list_cmt = loadall_cmt();
+      include "./comment/cmt.php";
+      break;
+    case 'deletecmt':
+      if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+        delete_cmt($_GET['id']);
+      }
+      $list_cmt = loadall_cmt();
+      include "./comment/cmt.php";
+      break;
+
     case 'rooms':
       include "rooms.php";
       break;
@@ -68,6 +83,3 @@ if (isset($_GET['act'])) {
       break;
   }
 }
-
-?>
-<link rel="stylesheet" href="../upload/">

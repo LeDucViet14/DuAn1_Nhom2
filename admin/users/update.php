@@ -77,9 +77,7 @@ if (is_array($user)) {
     </div>
     </div>
     <?php require('inc/scripts.php');
-    print_r($profile);
     ?>
-    <link rel="stylesheet" href="../../">
 </body>
 
 </html>
