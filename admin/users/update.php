@@ -77,7 +77,6 @@ if (is_array($user)) {
     </div>
     </div>
     <?php require('inc/scripts.php');
-    ?>
 </body>
 
 </html>

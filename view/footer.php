@@ -1,10 +1,15 @@
 <!-- footer -->
 <div class="container-fluid bg-light mt-5">
         <div class="row">
+            <?php
+                foreach($general_settings as $logo){
+                    
+                }
+            ?>
             <div class="col-lg-4 p-4">
-                <h3 class="h-font fw-bold fs-3 mb-2">LEO HOTEL</h3>
+                <h3 class="h-font fw-bold fs-3 mb-2"><?=$logo['name_hotel']?></h3>
                 <p>
-                    Le Duc Viet Le Duc Viet Le Duc Viet Le Duc Viet Le Duc Viet Le Duc Viet Le Duc Viet
+                    <?=$logo['about_us']?>
                 </p>
             </div>
 
