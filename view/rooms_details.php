@@ -6,6 +6,7 @@
                 <?php
                     extract($one_room);
                     $hinhpath = './admin'.$img;
+                    $link_book = "index.php?act=confirm_booking&id=$id";
                 ?>
                 <div class="col-lg-12 mb-4 my-5 px-4">
                     <h2 class="fw-bold"><?=$name?></h2>
@@ -99,7 +100,7 @@
                             </div>
 
 
-                            <a href="#" class="btn btn-sm text-white custom-bg shadow-none w-100 mb-1">Book now</a>
+                            <a href="<?=$link_book?>" class="btn btn-sm text-white custom-bg shadow-none w-100 mb-1">Book now</a>
 
                         </div>
                     </div>

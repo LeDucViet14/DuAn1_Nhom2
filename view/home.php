@@ -254,14 +254,23 @@
     <!-- Our facilities -->
     <div class="our-facilities">
         <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">OUR FACILITIES</h2>
-
+        
         <div class="container">
             <div class="row justify-content-evenly px-lg-0 px-md-0 px-5">
-                <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
-                    <img src="images/facilities/IMG_43553.svg" style="width: 80px;" alt="">
-                    <h5 class="mt-3">Wifi</h5>
-                </div>
-                <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+                <?php
+                    foreach($facilities as $fac){
+                        extract($fac);
+                        $hinhpath = './admin'.$icon;
+                        echo '
+                        <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
+                            <img src="'.$hinhpath.'" style="width: 80px;" alt="">
+                            <h5 class="mt-3">'.$name.'</h5>
+                        </div>
+                        ';
+                    }
+                ?>
+
+                <!-- <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
                     <img src="images/facilities/IMG_41622.svg" style="width: 80px;" alt="">
                     <h5 class="mt-3">Tivi</h5>
                 </div>
@@ -276,7 +285,7 @@
                 <div class="col-lg-2 col-md-2 text-center bg-white rounded shadow py-4 my-3">
                     <img src="images/facilities/IMG_96423.svg" style="width: 80px;" alt="">
                     <h5 class="mt-3">Car</h5>
-                </div>
+                </div> -->
                 <div class="col-lg-12 text-center mt-5">
                     <a href="index.php?act=facilities" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">More Facilities
                         >>></a>
