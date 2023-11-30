@@ -9,13 +9,14 @@
     include "model/settings.php";
     include "model/room_type.php";
     include "model/comments.php";
+    include "model/facilities.php";
     include "global.php";
     $contact_home = loadContact();
     $general_settings = loadall_general_settings();
     $three_rooms = load_3_room();
-    // print_r($all_room_type);
     $all_comments = loadall_comment();
     $all_room = loadall_room();
+    $facilities = loadall_facities();
     include "view/header.php";
     if(isset($_GET['act']) && ($_GET['act'] != "")){
         $act = $_GET['act'];
@@ -51,15 +52,19 @@
                 break;
             
             case 'confirm_booking':
+                $ischeck = true;
                 if(!isset($_SESSION['user'])){
                     include 'view/home.php';
                     alert("erorr","You are not logged in");
+                    $ischeck = false;
+                    // echo "<script>window.location.href='index.php?act=home'</script>";
                 }
                 if(isset($_GET['id']) && $_GET['id'] >0){
                     $one_room = load_one_room($_GET['id']);
                 }
-
-                include 'view/confirm_booking.php';
+                if($ischeck){
+                    include 'view/confirm_booking.php';
+                }
                 break;
 
             case "pay_now":
@@ -141,7 +146,7 @@
                     if(is_array($checkuser)){
                         alert("success","Logged in successfully!");
                         $_SESSION['user'] = $checkuser;
-                        // echo '<script>location.reload();</script>';
+                        echo "<script>window.location.href='index.php?act=home'</script>";
                     }else{
                         alert("error","account or password is incorrect!");
                     }
@@ -151,6 +156,7 @@
             case "logout":
                 logout();
                 alert("success","logged out");
+                echo "<script>window.location.href='index.php?act=home'</script>";
                 include "view/home.php";
                 break;
             
@@ -190,8 +196,6 @@
                     }   
                     $_SESSION['user'] = $update_info;
                     alert("success","Update successful. Please log in again !");
-                }else{
-                    alert("error","Update failed");
                 }
                 include "view/profile.php";
                 break;

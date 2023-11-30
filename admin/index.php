@@ -8,6 +8,8 @@
   include '../model/contact.php';
   include '../model/settings.php';
   include '../model/room_type.php';
+  include '../model/users.php';
+  include '../model/admin.php';
 
   include '../model/rooms.php';
 
@@ -27,96 +29,12 @@
       case 'dashboard':
         include 'dashboard.php';
         break;
-      // case "rooms":
-
-      //   if(isset($_POST['add_room'])){
-      //     $name = $_POST['name'];
-      //     $id_room_type = $_POST['id_room_type'];
-      //     // $area = $_POST['are'];
-      //     // $children = $_POST['children'];
-      //     // $adult = $_POST['adult'];
-      //     // $price = $_POST['price'];
-      //     // $description = $_POST['description'];
-      //     $insert_room = insert_room($name,$id_room_type);
-
-      //   //   $room_id_max = select_id_max_room();
-      //   //   if(isset($_POST['features']) && is_array($_POST['features'])){
-      //   //     foreach($_POST['features'] as $value){
-      //   //       insert_room_feature($room_id_max['id'], $value);
-      //   //     }  
-      //   //   }  
-
-      //   //   if(isset($_POST['facility']) && is_array($_POST['facility'])){
-      //   //       foreach($_POST['facility'] as $value){
-      //   //         insert_room_facilities($room_id_max['id'], $value);
-      //   //     }  
-      //   //   }  
-      //     alert("success","Add room successfully!");
-      //   }
-        
-      //   include 'room/list.php';
-      //   break;
-
-      // case "edit_room_type":
-      //   if(isset($_GET['id']) && $_GET['id'] > 0){
-      //     $one_room = select_room_one($_GET['id']);
-      //   }
-      //   $list_room_type = load_room_type();
-      //   include 'room/update.php';
-      //   break;
-
-      // case 'update_room_type':
-      //   if(isset($_POST['update_room'])){
-      //     $name = $_POST['name'];
-      //     $idroom = $_POST['room_id'];
-      //     $id_room_type = $_POST['id_room_type'];
-      //     update_room($name,$id_room_type,$idroom);
-      //     header("location: index.php?act=rooms");
-      //     alert("success","Update room successfully!");
-      //   }
-      //   break;
-
-      // case "delete_room":
-      //   if(isset($_GET['id']) && $_GET['id']>0) {
-      //       delete_room($_GET['id']);
-      //       header("location: index.php?act=rooms");
-            
-      //   }
-      //   break;
       
       case "rooms":
         include "rooms/list.php";
         
         break;
       
-      // case "add_room":
-      //   if(isset($_POST['add_room_type'])){
-      //     $isCheck = true;
-      //     $data = filteration($_POST);
-      //     $name = $data['name'];
-      //     $price = $data['price'];
-      //     $children = $data['children'];
-      //     $adult = $data['adult'];
-
-      //     $avatarPath ="";
-      //     $avatarName = $_FILES["img"]["name"];
-      //     $avatarTmpName = $_FILES["img"]["tmp_name"];
-      //     $avatarPath = "upload_admin/" . basename($avatarName);
-      //     move_uploaded_file($avatarTmpName, $avatarPath); 
-
-      //     insert_room_type($name, $price, $children, $adult, $avatarPath);
-      //     alert("success","Add Room Type Successfuly!");
-          
-      //   }
-      //   include "room_type/list.php";
-      //   break;
-        
-      // case "delete_room":
-      //   if(isset($_GET['id']) && $_GET['id'] > 0){
-      //     delete_room_type($_GET['id']);
-      //     header("location: index.php?act=add_room_type");
-      //   }
-      //   break;
       case "add_room":
         if(isset($_POST['add_room'])){
           $name = $_POST['name'];
@@ -226,41 +144,113 @@
             header("location: index.php?act=room_type");
           }
           break;
-      // case "update_room":
-      //   if(isset($_POST['update_room_type'])){
-      //     $name = $_POST['name'];
-      //     $idroom_type = $_POST['room_type_id'];
-      //     $price = $_POST['price'];
-      //     $children = $_POST['children'];
-      //     $adult = $_POST['adult'];
-      //     $description = $_POST['description'];
-      //     $Facilities1 = $_POST['Facilities1'];
-      //     $Facilities2 = $_POST['Facilities2'];
-      //     $Facilities3 = $_POST['Facilities3'];
-      //     $Facilities4 = $_POST['Facilities4'];
-      //     $Features1 = $_POST['Features1'];
-      //     $Features2 = $_POST['Features2'];
-      //     $Features3 = $_POST['Features3'];
-      //     $Features4 = $_POST['Features4'];
+        
+        // facilities
+        case "facilities":
+          include "facilities/list.php";
+          break;
 
-      //     $img = $_FILES["img"]["name"];
-      //     $target_dir = "./upload_admin/";
-      //     $target_flie = $target_dir.basename($img);
-      //     update_room_type($idroom_type, $name, $price, $children, $adult, $description, $Facilities1, $Facilities2, $Facilities3, $Facilities4, $Features1, $Facilities2, $Facilities3, $Facilities4, $target_flie);
-      //     if(move_uploaded_file($_FILES['img']['tmp_name'], $target_flie)){
-      //         echo "upload ảnh thành công";
-      //     }else{
-      //         echo "upload ảnh không thành công";
-      //     }
+        case "add_facilities":
+          if(isset($_POST['add_facilities'])){
+            $name = $_POST['name'];
+            $description = $_POST['description'];
+            $icon = $_FILES['icon']['name'];
+            $target_dir = "./upload_admin/";
+            $target_flie = $target_dir.basename($icon);  
+            if(move_uploaded_file($_FILES['icon']['tmp_name'], $target_flie)){
+              // echo "upload ảnh thành công";
+            }else{
+                // echo "upload ảnh không thành công";
+            }
+            insert_facilities($name, $target_flie, $description);
+            header('location: index.php?act=facilities');
+          }
+          break;
 
-          
-      //     header("location: index.php?act=add_room_type");
-      //     alert("success","Update room successfully!");
-      //   }
-      //   break;
+        case "delete_facilities":
+          if(isset($_GET['id']) && $_GET['id']>0){
+            delete_facilities($_GET['id']);
+            header('location: index.php?act=facilities');
+          }
+          break;
+        
+        case "edit_facilities":
+          if(isset($_GET['id']) && $_GET['id'] > 0){
+            $one_facilities =load_one_facilities($_GET['id']);
+          }
+          include "facilities/update.php";
+          break;
+        
+        case "update_facilities":
+          if(isset($_POST['update_facilities'])){
+            $name = $_POST['name'];
+            $description = $_POST['description'];
+            $icon = $_FILES['icon']['name'];
+            $id = $_POST['id_facilities'];
+            $target_dir = "./upload_admin/";
+            $target_flie = $target_dir.basename($icon);
+            update_facilities($name, $description, $target_flie,$id);
+            if(move_uploaded_file($_FILES['icon']['tmp_name'], $target_flie)){
+                // echo "upload ảnh thành công";
+            }else{
+                // echo "upload ảnh không thành công";
+            }
+            header('location: index.php?act=facilities');
+          }
+          break;
 
+        //admin  
+        case "admin":
+          $listAdmin = loadall_admin();
+          include "admin/list.php";
+          break;
+        
+        case "add_admin":
+          if(isset($_POST['add_admin'])){
+            $ischeck = true;
+            $name = $_POST['name'];
+            $password = $_POST['password'];
+            $role = $_POST['role'];
+            $listAdmin = loadall_admin();
+            foreach($listAdmin as $admin){
+              if($admin['admin_name'] == $name){
+                $ischeck = false;
+                header("location: index.php?act=admin");
+                alert("error","This admin account already exists !");
+              }
+            }
+            if($ischeck){
+              insert_admin($name, $password, $role);
+              header("location: index.php?act=admin");
+            }
+          }
+          break;
 
+        case "delete_admin":
+          if(isset($_GET['id']) && $_GET['id'] > 0){
+            delete_admin($_GET['id']);
+            header("location: index.php?act=admin");
+          }
+          break;
 
+        case "edit_admin":
+          if(isset($_GET['id']) && $_GET['id'] > 0){
+            $one_admin = load_one_admin($_GET['id']);
+          }
+          include "admin/update.php";
+          break;
+
+        case "update_admin":
+          if(isset($_POST['update_admin'])){
+            print_r($_POST);
+            $name = $_POST['name'];
+            $password = $_POST['password'];
+            $role = $_POST['role'];
+            $id_admin = $_POST['id_admin'];
+            update_admin($id_admin, $name, $password, $role);
+            header("location: index.php?act=admin");
+          }
+          break;
 
 
 
@@ -296,6 +286,52 @@
         }
         include "settings.php";
         break;
+
+        case 'users':
+          // $sql = "SELECT * FROM user_cred";
+          // $rows = pdo_query($sql);
+          // $count = 1;  // Biến đếm
+          $list_user = loadall_user();
+          include "./users/users.php";
+          break;
+        case 'deleteusers':
+          if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+            delete_user($_GET['id']);
+          }
+          $list_user = loadall_user();
+          include "./users/users.php";
+          break;
+
+        case 'suausers':
+          if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+            $user = loadone_user($_GET['id']);
+          }
+          $list_user = loadall_user();
+          include "./users/update.php";
+          break;
+
+        case "updateusers":
+          if (isset($_POST['capnhat'])) {
+            $id = $_POST['id'];
+            $name = $_POST['name'];
+            $phone = $_POST['phonenum'];
+            $dob = $_POST['dob'];
+            $address = $_POST['address'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $img = $_FILES["profile"]["name"];
+            $target_dir = "../upload/";
+            $target_file = $target_dir . basename($img);
+            $update_user = update_user($id, $name, $phone, $dob, $address, $email, $password, $target_file);
+            if (move_uploaded_file($_FILES["profile"]["tmp_name"], $target_file)) {
+              // Ảnh đã được tải lên thành công
+            } else {
+              // Lỗi khi tải ảnh lên
+            }
+          }
+          $list_user = loadall_user();
+          include "./users/users.php";
+          break;
 
       
       default:

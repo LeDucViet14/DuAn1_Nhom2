@@ -48,7 +48,7 @@
                         <div class="col-4 mb-5 px-4">
                             <div class="bg-white p-3 p-md rounded shadow-sm">
                                 <h5 class="mb-3 fw-bold">Picture</h5>
-                                <img src="<?=$img?>" class="img-fluid mb-3" alt="">
+                                <img src="<?=$profile?>" class="img-fluid mb-3" alt="">
                                 <label class="form-label">New Picture</label>
                                 <input name="profile" type="file" class="mb-4 form-control shadow-none">
                             </div> 
