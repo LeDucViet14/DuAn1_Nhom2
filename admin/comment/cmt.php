@@ -34,12 +34,11 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $count = 1;  // Biến đếm
                                     foreach ($list_cmt as $cmt) {
                                         extract($cmt);
-                                        $xoacmt = "index.php?act=deletecmt&id=" . $id;
+                                        $xoacmt = "index.php?act=deletecmt&id=" . $cmt['0'];
                                         echo '<tr>';
-                                        echo '<td>' . $count++ . '</td>';
+                                        echo '<td>' . $cmt['0'] . '</td>';
                                         echo '<td>' . $content . '</td>';
                                         echo '<td>' . $id_user . '</td>';
                                         echo '<td>' . $name . '</td>';

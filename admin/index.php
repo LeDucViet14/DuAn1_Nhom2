@@ -10,13 +10,14 @@
   include '../model/room_type.php';
   include '../model/users.php';
   include '../model/admin.php';
+  include '../model/cmt.php';
 
   include '../model/rooms.php';
 
   adminLogin(); 
   include './inc/links.php';
   include './inc/scripts.php';
-  include 'header.php'; 
+  // include 'header.php'; 
   $features = loadall_features();
   $facilities = loadall_facities();
   $list_room_type = loadall_room_type();
@@ -351,4 +352,4 @@
         break;
     }
   }
-}
+
