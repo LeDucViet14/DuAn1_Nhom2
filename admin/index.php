@@ -251,6 +251,18 @@
             header("location: index.php?act=admin");
           }
           break;
+        //comments
+        case 'cmt':
+          $list_cmt = loadall_cmt();
+          include "./comment/cmt.php";
+          break;
+        case 'deletecmt':
+          if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+            delete_cmt($_GET['id']);
+          }
+          $list_cmt = loadall_cmt();
+          include "./comment/cmt.php";
+          break;
 
 
 
@@ -339,4 +351,4 @@
         break;
     }
   }
-?>
+}
