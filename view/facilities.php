@@ -9,7 +9,26 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-5 px-4">
+                <?php
+                    foreach($facilities as $fac){
+                        extract($fac);
+                        $hinhpath = './admin'.$icon;
+                        echo '
+                        <div class="col-lg-4 col-md-6 mb-5 px-4">
+                            <div class="bg-white rounded shadow p-4 border-top border-4 border-dark pop">
+                                <div class="d-flex align-items-center mb-2">
+                                    <img src="'.$hinhpath.'" alt="" width="40px">
+                                    <h5 class="m-0 ms-2">'.$name.'</h5>
+                                </div>
+                                <p>'.$description.' </p>
+                            </div>
+                        </div>
+                        ';
+                    }
+                ?>
+
+                
+                <!-- <div class="col-lg-4 col-md-6 mb-5 px-4">
                     <div class="bg-white rounded shadow p-4 border-top border-4 border-dark pop">
                         <div class="d-flex align-items-center mb-2">
                             <img src="images/facilities/IMG_43553.svg" alt="" width="40px">
@@ -63,18 +82,7 @@
                             Wifi toc do nhanh Wifi toc do nhanh Wifi toc do nhanh 
                         </p>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-5 px-4">
-                    <div class="bg-white rounded shadow p-4 border-top border-4 border-dark pop">
-                        <div class="d-flex align-items-center mb-2">
-                            <img src="images/facilities/IMG_43553.svg" alt="" width="40px">
-                            <h5 class="m-0 ms-2">Wifi</h5>
-                        </div>
-                        <p>Wifi toc do nhanh Wifi toc do nhanh Wifi toc do nhanh Wifi toc 
-                            Wifi toc do nhanh Wifi toc do nhanh Wifi toc do nhanh 
-                        </p>
-                    </div>
-                </div>
+                </div> -->
             </div>
         </div>
 

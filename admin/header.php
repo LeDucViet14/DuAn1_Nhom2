@@ -20,11 +20,30 @@
                                  <a class="nav-link text-white" href="index.php?act=room_type">Rooms Type</a>
                              </li>
                              <li class="nav-item">
-                                 <a class="nav-link text-white" href="#">Users</a>
+                                 <a class="nav-link text-white" href="index.php?act=users">Users</a>
                              </li>
                              <li class="nav-item">
                                  <a class="nav-link text-white" href="index.php?act=rooms">Rooms</a>
                              </li>
+                             <?php
+                                if(isset($_SESSION['admin'])){
+                                    if($_SESSION['admin']['role']!=0){
+                                        echo '
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" href="index.php?act=admin">Admin</a>
+                                        </li>
+                                        ';
+                                    }
+                                    
+                                }
+                             ?>
+                             
+                             <li class="nav-item">
+                                 <a class="nav-link text-white" href="index.php?act=facilities">Facilities</a>
+                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="index.php?act=cmt">Comments</a>
+                            </li>
                              <li class="nav-item">
                                  <a class="nav-link text-white" href="index.php?act=settings">Settings</a>
                              </li>

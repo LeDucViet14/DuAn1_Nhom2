@@ -94,9 +94,10 @@
                                 <?= $adult ?> Adults
                             </span>
                         </div>
-                        <form action="./checkout.php" method="post">
-                            <button class="btn btn-sm text-white custom-bg shadow-none w-100 mb-1"> BOOK NOW</button>
-                        </form>
+
+
+                        <a href="#" class="btn btn-sm text-white custom-bg shadow-none w-100 mb-1">Book now</a>
+
                     </div>
                 </div>
             </div>
@@ -140,6 +141,7 @@
 
         </div>
     </div>
+
 
 
 </main>
