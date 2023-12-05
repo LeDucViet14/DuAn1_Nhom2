@@ -15,7 +15,12 @@
 <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-white px-lg-3 py-lg-2 shadow-sm sticky-top">
             <div class="container-fluid">
-                <a class="navbar-brand me-5 fw-bold fs-3 h-font" href="index.php?act=home">LEO HOTEL</a>
+                <?php
+                    foreach($general_settings as $logo){
+                        
+                    }
+                ?>
+                <a class="navbar-brand me-5 fw-bold fs-3 h-font" href="index.php?act=home"><?=$logo['name_hotel'] ?></a>
                 <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">

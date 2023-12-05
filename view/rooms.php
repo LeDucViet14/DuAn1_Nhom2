@@ -63,7 +63,57 @@
                 </div>
 
                 <div class="col-lg-9 col-md-12 px-4">
-                    <div class="card mb-4 shadow border-0" >
+                    <?php
+                        foreach($all_room_type as $rt){
+                            // print_r($rt);
+                            extract($rt);
+                            $link = "index.php?act=room_details&id=$id";
+                            $hinhpath = './admin'.$img;
+                            echo '
+                            <div class="card mb-4 shadow border-0" >
+                            <div class="row g-0 p-3 align-items-center">
+                                <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
+                                    <img src="'.$hinhpath.'" class="img-fluid rounded" alt="room">
+                                </div>
+                                <div class="col-md-5 px-lg-3 px-md-3 px-0">
+                                    <h5 class="mb-3">'.$name.'</h5>
+                                    <div class="features mb-3">
+                                        <h6 class="mb-1">Features</h6>
+                                        <span class="badge text-dark text-wrap">'.$features1.'</span>
+                                        <span class="badge text-dark text-wrap">'.$features2.'</span>
+                                        <span class="badge text-dark text-wrap">'.$features3.'</span>
+                                        <span class="badge text-dark text-wrap">'.$features4.'</span>
+                                    </div>
+                                    <div class="facilities mb-3">
+                                        <h6 class="mb-1">Facilities</h6>
+                                        <span class="badge  text-dark ">'.$facilities1.'</span>
+                                        <span class="badge  text-dark ">'.$facilities2.'</span>
+                                        <span class="badge  text-dark ">'.$facilities3.'</span>
+                                        <span class="badge  text-dark ">'.$facilities4.'</span>
+                                        
+                                        
+                                    </div>
+                                    <div class="guests">
+                                        <h6 class="mb-1">Guests</h6>
+                                        <span class="badge rounded-pill text-bg-light text-dark text-wrap">
+                                            3 Children
+                                        </span>
+                                        <span class="badge rounded-pill text-bg-light text-dark text-wrap">
+                                            2 Adults
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 text-center mt-lg-0 mt-md-0 mt-4">
+                                    <h6 class="mb-4">120.000 per night</h6>
+                                    <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book now</a>
+                                    <a href="'.$link.'" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
+                                </div>
+                            </div>
+                        </div>
+                            ';
+                        }
+                    ?>
+                    <!-- <div class="card mb-4 shadow border-0" >
                         <div class="row g-0 p-3 align-items-center">
                             <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
                                 <img src="images/rooms/1.jpg" class="img-fluid rounded" alt="room">
@@ -96,7 +146,7 @@
                                 <a href="index.php?act=room_details" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                    
 

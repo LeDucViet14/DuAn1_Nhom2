@@ -3,13 +3,16 @@
 
         <div class="container">
             <div class="row">
-
+                <?php
+                    extract($one_room_type);
+                    $hinhpath = './admin'.$img;
+                ?>
                 <div class="col-lg-12 mb-4 my-5 px-4">
-                    <h2 class="fw-bold">Name Room</h2>
+                    <h2 class="fw-bold"><?=$name?></h2>
                     <div style="font-size: 14px;">
-                        <a href="index.html" class="text-secondary text-decoration-none">HOME</a>
+                        <a href="index.php?act=home" class="text-secondary text-decoration-none">HOME</a>
                         <span> > </span>
-                        <a href="rooms.html" class="text-secondary text-decoration-none">ROOMS</a>
+                        <a href="index.php?act=rooms" class="text-secondary text-decoration-none">ROOMS</a>
                     </div>
                 </div>
 
@@ -19,13 +22,13 @@
                     <div id="carouselExample" class="carousel slide">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="images/rooms/IMG_11892.png" class="d-block w-100 rounded" alt="...">
+                                <img src="<?=$hinhpath?>" class="d-block w-100 rounded" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="images/rooms/IMG_39782.png" class="d-block w-100 rounded" alt="...">
+                                <img src="<?=$hinhpath?>" class="d-block w-100 rounded" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="images/rooms/IMG_42663.png" class="d-block w-100 rounded" alt="...">
+                                <img src="<?=$hinhpath?>" class="d-block w-100 rounded" alt="...">
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
@@ -44,7 +47,7 @@
                 <div class="col-lg-5 col-md-12 px-4">
                     <div class="card mb-4 border-0 shadow-sm rounded-3">
                         <div class="card-body">
-                            <h4>$50 per night</h4>
+                            <h4><?=$price?> VND per night</h4>
 
                             <div class="raiting mb-3">
                                 <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
@@ -55,52 +58,46 @@
 
                             <div class="features mb-4">
                                 <h6 class="mb-1">Features</h6>
-                                <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                    2 rooms
+                                <span class="badge text-dark">
+                                    <?=$features1?>
                                 </span>
-                                <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                    1 Batroom
+                                <span class="badge text-dark">
+                                    <?=$features2?>
                                 </span>
-                                <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                    2 Balcony
+                                <span class="badge text-dark">
+                                    <?=$features3?>
                                 </span>
-                                <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                    2 sofa
+                                <span class="badge text-dark">
+                                    <?=$features4?>
                                 </span>
                             </div>
 
                             <div class="facilities mb-4">
                                 <h6 class="mb-1">Facilities</h6>
-                                <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                    Wifi
+                                <span class="badge text-dark">
+                                    <?=$facilities1?>
                                 </span>
-                                <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                    Television
+                                <span class="badge text-dark">
+                                    <?=$facilities2?>
                                 </span>
-                                <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                    AC
+                                <span class="badge text-dark">
+                                    <?=$facilities3?>
                                 </span>
-                                <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                    Room heater
+                                <span class="badge text-dark">
+                                    <?=$facilities4?>
                                 </span>
                             </div>
 
                             <div class="Guests mb-4">
                                 <h6 class="mb-1">Guests</h6>
-                                <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                    4 Children
+                                <span class="badge text-dark">
+                                    <?=$children?> Children
                                 </span>
-                                <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                    5 Adults
+                                <span class="badge text-dark">
+                                    <?=$adult?> Adults
                                 </span>
                             </div>
 
-                            <div class="area mb-4">
-                                <h6 class="mb-1">Area</h6>
-                                <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                    Ha Noi
-                                </span>
-                            </div>
 
                             <a href="#" class="btn btn-sm text-white custom-bg shadow-none w-100 mb-1">Book now</a>
 
@@ -111,26 +108,38 @@
                 <div class="col-12 mt-4 px-4">
                     <div class="mb-5">
                         <h5>Description</h5>
-                        <p>Mô tả (đẹp, tiện nghi....)</p>
+                        <p><?=$description?></p>
                     </div>
                     <div>
                         <h5 style="margin-bottom:10px ;">Reviews & Ratings</h5>
-                        <div>
-                            <div class="d-flex align-items-center mb-2">
-                                <img src="" alt="ảnh">
-                                <h6 class="m-0 ms-2">Random user 1</h6>
-                            </div>
-                            <p>Le Duc Viet Le Duc Viet Le Duc Viet Le Duc Viet Le Duc Viet Le Duc Viet Le Duc Viet Le
-                                Duc
-                                Viet Le Duc Viet Le Duc Viet Le Duc Viet Le Duc Viet </p>
-                            <div class="raiting">
-                                <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
-                                <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
-                                <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
-                                <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
-                            </div>
-                        </div>
+                    <?php
+                        foreach($comments as $cm){
+                            extract($cm);
+                            $hinhpath = './admin'.$img;
+                            
+                            echo '
+                            
+                                <div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <img src="'.$hinhpath.'" alt="ảnh" width="40px">
+                                        <h6 class="m-0 ms-2 ">'.$name.'</h6>
+                                        <p style="font-size:13px ;" class="m-0 ms-2">'.date("d/m/Y", strtotime($date)).'</p>
+                                    </div>
+                                    <p>'.$content.' </p>
+                                    <div class="raiting">
+                                        <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
+                                        <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
+                                        <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
+                                        <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
+                                    </div>
+                                </div>
+                                <hr>
+                            
+                            ';
+                        }
+                    ?>
                     </div>
+                    
                 </div>
 
             </div>

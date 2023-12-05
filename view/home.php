@@ -71,7 +71,73 @@
         <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">OUR ROOMS</h2>
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6 my-3">
+                <?php
+                    foreach($ba_room_type as $rt){
+                        // echo "<pre>";
+                        extract($rt);
+                        $link = "index.php?act=room_details&id=$id";
+                        $hinhpath = './admin'.$img;
+                        // print_r($hinhpath);
+
+                        echo '
+                        <div class="col-lg-4 col-md-6 my-3">
+                        <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
+                            <img src="'.$hinhpath.'" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5>'.$name.'</h5>
+                                <h6 class="mb-4">'.$price.' VND per night</h6>
+                                <div class="features mb-4">
+                                    <h6 class="mb-1">Features</h6>
+                                    <span class="badge text-dark ">
+                                        '.$facilities1.'
+                                    </span>
+                                    <span class="badge text-dark">
+                                        '.$facilities2.'
+                                    </span>
+                                    <span class="badge text-dark">
+                                        '.$facilities3.'
+                                    </span>
+                                    <span class="badge text-dark">
+                                        '.$facilities4.'
+                                    </span>
+                                </div>
+                                <div class="facilities mb-4">
+                                    <h6 class="mb-1">Facilities</h6>
+                                    <span class="badge text-dark">
+                                        '.$features1.'
+                                    </span>
+                                    <span class="badge text-dark">
+                                        '.$features2.'
+                                    </span>
+                                    <span class="badge text-dark">
+                                        '.$features3.'
+                                    </span>
+                                    <span class="badge text-dark">
+                                        '.$features4.'
+                                    </span>
+                                </div>
+                                <div class="rating mb-4">
+                                    <h6 class="mb-1">Rating</h6>
+                                    <span class="badge rounded-pill bg-light">
+                                        <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
+                                        <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
+                                        <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
+                                        <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
+                                    </span>
+                                </div>
+                                <div class="d-flex justify-content-evenly mb-1">
+                                    <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Book now</a>
+                                    <a href="'.$link.'" class="btn btn-sm btn-outline-dark shadow-none">More details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        ';
+                    }   
+                ?>
+                
+
+                <!-- <div class="col-lg-4 col-md-6 my-3">
                     <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
                         <img src="images/rooms/1.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
@@ -175,60 +241,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 my-3">
-                    <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
-                        <img src="images/rooms/1.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5>Simple room name</h5>
-                            <h6 class="mb-4">$50 per night</h6>
-                            <div class="features mb-4">
-                                <h6 class="mb-1">Features</h6>
-                                <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                    2 rooms
-                                </span>
-                                <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                    1 Batroom
-                                </span>
-                                <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                    2 Balcony
-                                </span>
-                                <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                    2 sofa
-                                </span>
-                            </div>
-                            <div class="facilities mb-4">
-                                <h6 class="mb-1">Facilities</h6>
-                                <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                    Wifi
-                                </span>
-                                <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                    Television
-                                </span>
-                                <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                    AC
-                                </span>
-                                <span class="badge rounded-pill text-bg-light text-dark text-wrap">
-                                    Room heater
-                                </span>
-                            </div>
-                            <div class="rating mb-4">
-                                <h6 class="mb-1">Rating</h6>
-                                <span class="badge rounded-pill bg-light">
-                                    <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
-                                    <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
-                                    <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
-                                    <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
-                                </span>
-                            </div>
-                            <div class="d-flex justify-content-evenly mb-1">
-                                <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Book now</a>
-                                <a href="#" class="btn btn-sm btn-outline-dark shadow-none">More details</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div> -->
 
                 <div class="col-lg-12 text-center mt-5">
                     <a href="index.php?act=rooms" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">More Rooms >>></a>
@@ -274,11 +287,36 @@
     <!-- testimonials -->
     <div class="testimonials">
         <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">TESTIMONIALS</h2>
+       
         <div class="container">
             <div class="swiper swiper-testimonials">
                 <div class="swiper-wrapper mb-5" style="padding-top: 10px;">
+                
+                <?php
+                    foreach($all_comments as $cm){
+                        extract($cm);
+                        $hinhpath = './admin'.$img;
+                        echo '
+                        <div class="swiper-slide bg-white p-4 shadow">
+                            <div class="profile d-flex align-items-center p-4">
+                                <img src="'.$hinhpath.'" alt="" style="width:30%; border-radius:5% ;">
+                                
+                                <h6 class="m-0 ms-2">'.$name.'</h6>
+                            </div>
+                            <p>'.$content.'</p>
+                            <div class="raiting">
+                                <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
+                                <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
+                                <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
+                                <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
+                            </div>
+                        </div>
+                        ';
+                    }
+                ?>
+                    
 
-                    <div class="swiper-slide bg-white p-4 shadow">
+                    <!-- <div class="swiper-slide bg-white p-4 shadow">
                         <div class="profile d-flex align-items-center p-4">
                             <i class="fa-solid fa-star" style="font-size: 25px;"></i>
                             <h6 class="m-0 ms-2">Random user 1</h6>
@@ -324,23 +362,7 @@
                             <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
                             <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
                         </div>
-                    </div>
-
-                    <div class="swiper-slide bg-white p-4 shadow">
-                        <div class="profile d-flex align-items-center p-4">
-                            <i class="fa-solid fa-star" style="font-size: 25px;"></i>
-                            <h6 class="m-0 ms-2">Random user 1</h6>
-                        </div>
-                        <p>Le Duc Viet Le Duc Viet Le Duc Viet Le Duc Viet Le Duc Viet Le Duc Viet Le Duc Viet Le
-                            Duc
-                            Viet Le Duc Viet Le Duc Viet Le Duc Viet Le Duc Viet </p>
-                        <div class="raiting">
-                            <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
-                            <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
-                            <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
-                            <i class="fa-solid fa-star" style="color: rgb(241, 241, 11);"></i>
-                        </div>
-                    </div>
+                    </div> -->
 
 
                 </div>
