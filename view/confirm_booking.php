@@ -1,5 +1,7 @@
 <main>
         <?php
+            include "./model/bookings.php";
+
             if(isset($_SESSION['user'])){
                 extract($_SESSION['user']);
             }
@@ -37,7 +39,7 @@
                 
                 <div class="col-lg-5 col-md-12 px-4">
                     <div class="card mb-4 border-0 shadow-sm rounded-3">
-                        <form action="" id="booking_form" method="POST">
+                        <form action="./view/pay_now.php" id="booking_form" method="POST">
                             <div class="card-body">
                                 <h5>BOOKING DETAILS</h5>
                                 <div class="row">
@@ -66,8 +68,12 @@
                                             <span class="visually-hidden">Loading...</span>
                                         </div>
                                         <h6 class="mb-3 text-danger" id="pay_info">Provide check-in & check-out date !</h6>
-                                        <button type="submit" name="pay_now" class="btn btn-sm text-white custom-bg shadow-none w-100 mb-1" disabled>Pay now</button>
-
+                                        <button type="submit" name="payUrl" class="btn btn-sm text-white custom-bg shadow-none w-100 mb-1" disabled>Pay now</button>
+                                        <?php
+                                            // if(isset($_POST['pay_now'])){
+                                            //     echo "<script>window.location.href='./vnpay_php/index.php'</script>";
+                                            // }
+                                        ?>
                                     </div>
                                 </div>
                                 
@@ -84,6 +90,31 @@
 
 
     </main>
+    <?php
+        // $check_room =check_room(1, '2023-12-20','2023-12-21');
+        // $bookings = load_one_booking(1);
+        // foreach($bookings as $bk){
+        //     extract($bk);
+        //     echo "<pre>";
+        //     print_r($bk);
+        // }
+        
+        // if($check_room['count'] > 0){
+        //     echo 1;
+        // }
+
+        // foreach($check_room as $ch){
+        //     // echo "<pre>";
+        //     print_r($ch);   
+        //     if(!(is_array($ch))){
+        //         echo 1;
+        //     }else{
+        //         echo 2;
+        //     }
+        // }
+        
+
+    ?>
     <script>
         let booking_form = document.getElementById('booking_form');
         let info_loader = document.getElementById('info_loader');
@@ -93,7 +124,7 @@
             let checkin_val = booking_form.elements['checkin'].value;
             let checkout_val = booking_form.elements['checkout'].value;
 
-            booking_form.elements['pay_now'].setAttribute('disabled',true);
+            booking_form.elements['payUrl'].setAttribute('disabled',true);
 
             if(checkin_val!='' && checkout_val!=''){
                 pay_info.classList.add('d-none');
@@ -124,7 +155,7 @@
                     }else{
                         pay_info.innerHTML = "No. of Days: "+data.days+"<br>Total Amount to Pay: "+data.payment+ " VND";
                         pay_info.classList.replace('text-danger', 'text-dark');
-                        booking_form.elements['pay_now'].removeAttribute('disabled');
+                        booking_form.elements['payUrl'].removeAttribute('disabled');
                     }
                     pay_info.classList.remove('d-none');
                     info_loader.classList.add('d-none');    

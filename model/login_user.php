@@ -93,8 +93,8 @@
         return $result;
     }
 
-    function update_info($id,$name,$phone,$dob,$pincode,$address,$email,$target_flie){
-        $sql = "UPDATE `user_cred` SET `name`='$name',`email`='$email',`address`='$address',`phonenum`='$phone',`dob`='$dob',`pincode`='$pincode', `profile`='$target_flie' 
+    function update_info($id,$name,$phone,$dob,$address,$email,$target_flie,$password){
+        $sql = "UPDATE `user_cred` SET `name`='$name',`email`='$email',`address`='$address',`phonenum`='$phone',`dob`='$dob',`password`='$password', `profile`='$target_flie' 
                 WHERE id = '$id'";
         pdo_execute($sql);
     }

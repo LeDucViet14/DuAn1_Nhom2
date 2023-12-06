@@ -11,13 +11,14 @@
   include '../model/users.php';
   include '../model/admin.php';
   include '../model/cmt.php';
+  include '../model/bookings.php';
 
   include '../model/rooms.php';
 
   adminLogin(); 
   include './inc/links.php';
   include './inc/scripts.php';
-  // include 'header.php'; 
+  include 'header.php'; 
   $features = loadall_features();
   $facilities = loadall_facities();
   $list_room_type = loadall_room_type();
@@ -27,9 +28,7 @@
   if(isset($_GET['act'])){
     $act = $_GET['act'];
     switch ($act) {
-      case 'dashboard':
-        include 'dashboard.php';
-        break;
+      
       
       case "rooms":
         include "rooms/list.php";
@@ -264,7 +263,33 @@
           $list_cmt = loadall_cmt();
           include "./comment/cmt.php";
           break;
+        
+        // bookings
+        case 'bookings':
+          $bookings = load_all_bookings();
+          include 'bookings/list.php';
+          break;
 
+        case "agree_booking":
+          if(isset($_GET['id']) && $_GET['id'] > 0){
+            agree_booking_status($_GET['id']);
+            header('location: index.php?act=bookings');
+          }
+          break;
+
+        case "cancel_booking":
+          if(isset($_GET['id']) && $_GET['id'] > 0){
+            cancel_booking_status($_GET['id']);
+            header('location: index.php?act=bookings');
+          }
+          break;
+
+        case "again_booking":
+          if(isset($_GET['id']) && $_GET['id'] > 0){
+            again_booking_status($_GET['id']);
+            header('location: index.php?act=bookings');
+          }
+          break;
 
 
 

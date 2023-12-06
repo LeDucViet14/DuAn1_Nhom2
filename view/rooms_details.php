@@ -112,7 +112,25 @@
                         <p><?=$description?></p>
                     </div>
                     <div>
-                        <h5 style="margin-bottom:10px ;">Reviews & Ratings</h5>
+                        <?php
+                        $ischeck = true;
+                        foreach($booking as $bk){
+                            // echo "<pre>";
+                            // print_r($bk['room_id']);
+                            if(isset($_SESSION['user']) && ($_SESSION['user']['id'] == $bk['id_user']) && ($bk['room_id'] == $id) && ($bk['booking_status'] == 'booked')){
+                                $ischeck = false;
+                            }
+                        }
+                        if($ischeck == false){
+                            echo '<form action="index.php?act=room_details&id='.$id.'" method="POST">
+                            <h5 style="margin-bottom:10px ;">Reviews & Ratings</h5>
+                            <input name="content" type="text" class="form-control mb-3" required>
+                            <button name = "review" type="submit" class="mb-3 btn text-white shadow-none custom-bg">Review</button>
+                            </form>';
+                        }
+                      
+                        ?>
+                        
                     <?php
                         foreach($comments as $cm){
                             extract($cm);

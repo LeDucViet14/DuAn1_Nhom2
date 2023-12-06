@@ -23,7 +23,7 @@
                                     <label class="form-label">Check out</label>
                                     <input type="date" class="form-control shadow-none">
                                 </div>
-                                <div class="border bg-light p-3 rounded mb-3">
+                                <!-- <div class="border bg-light p-3 rounded mb-3">
                                     <h5 class="mb-3" style="font-size:18px ;">FACILITIES</h5>
                                     <div class="mb-2">
                                         <input type="checkbox" id="f1" class="form-check-input shadow-none me-1">
@@ -41,7 +41,7 @@
                                         <input type="checkbox" id="f4" class="form-check-input shadow-none me-1">
                                         <label class="form-check-label" for="f4"> facility 4</label>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="border bg-light p-3 rounded mb-3">
                                     <h5 class="mb-3" style="font-size:18px ;">GUESTS</h5>
                                     <div class="d-flex">

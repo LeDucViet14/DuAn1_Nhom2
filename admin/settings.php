@@ -65,7 +65,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="card mt-4">
+                <!-- <div class="card mt-4">
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <h5 class="card-title m-0 fw-bold">Shutdown Websites</h5>
@@ -75,7 +75,7 @@
                         </div>
                         <p class="card-text">No customers will be allowed to bookhotel room, when shutdown mode is turn on</p>
                     </div>
-                </div>
+                </div> -->
                 <div class="card mt-4">
                     <?php
                         foreach($contact as $value){

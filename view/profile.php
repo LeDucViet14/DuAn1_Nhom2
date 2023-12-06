@@ -32,8 +32,8 @@
                             <input name="dob" value="<?=$dob?>" type="date" class="form-control shadow-none">
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label class="form-label">Pincode</label>
-                            <input name="pincode" value="<?=$pincode?>" type="number" class="form-control shadow-none">
+                            <label class="form-label">Password</label>
+                            <input name="password" value="<?=$password?>" type="number" class="form-control shadow-none">
                         </div>
                         <div class="col-md-4 mb-3">
                             <label class="form-label">Address</label>
@@ -52,21 +52,7 @@
                                 <label class="form-label">New Picture</label>
                                 <input name="profile" type="file" class="mb-4 form-control shadow-none">
                             </div> 
-                        </div>
-
-                        <div class="col-8 mb-5 px-4">
-                            <h5 class="mb-3 fw-bold">Password changes</h5>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label">Password old</label>
-                                    <input name="pass_old" type="password" class="form-control shadow-none">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label">Password new</label>
-                                    <input name="pass_new" type="password" class="form-control shadow-none">
-                                </div>
-                            </div>
-                        </div>
+                        </div>                        
                     </div>
                     <input type="hidden" name="id" id="" value="<?=$id?>"> 
                     <button name="update_info" type="submit" class="btn custom-bg border-0 btn-dark shadow-none">Save Changes</button>

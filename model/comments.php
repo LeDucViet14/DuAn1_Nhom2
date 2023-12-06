@@ -16,4 +16,11 @@
         $resutl = pdo_query($sql);
         return $resutl;
     }
+
+    function insert_comment($idroom, $content, $id_user){
+        $date = date('Y-m-d');
+        $sql = "INSERT INTO `comments`(`content`, `id_user`, `id_room`, `date`) VALUES ('$content','$id_user','$idroom','$date')";
+        pdo_execute($sql);
+    }
+
 ?>

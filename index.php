@@ -10,6 +10,7 @@
     include "model/room_type.php";
     include "model/comments.php";
     include "model/facilities.php";
+    // include "model/bookings.php";
     include "global.php";
     $contact_home = loadContact();
     $general_settings = loadall_general_settings();
@@ -43,10 +44,21 @@
                 break;
 
             case 'room_details':
+                include "model/bookings.php";
                 if(isset($_GET['id']) && $_GET['id'] >0){
                     $one_room = load_one_room($_GET['id']);
                     // $comments = load_comments($_GET['id']);
                     $comments = load_comments($_GET['id']);
+                    // $bookings = load_all_bookings();
+                    $booking = load_one_booking($_GET['id']);
+
+                    if(isset($_POST['review'])){
+                        insert_comment($_GET['id'],$_POST['content'],$_SESSION['user']['id']);
+                        // print_r($_POST['content']);
+                        // print_r($_GET['id']);
+                        // print_r($_SESSION['user']['id']);
+                    }
+
                     include 'view/rooms_details.php';
                 }
                 break;
@@ -67,20 +79,6 @@
                 }
                 break;
 
-            case "pay_now":
-                if(isset($_POST['paynow'])){
-                    $today = new DateTime(date("d-m-Y"));
-                    // $today = date("d-m-Y");
-                    $checkin = date("d/m/Y", strtotime($_POST['checkin']));
-                    $checkout = date("d/m/Y", strtotime($_POST['checkout']));
-                    // if( $checkin <   $today ){
-                    //     alert("erorr","abc");
-                        
-                    // }
-                    $total_date = $today;
-                    // print_r($total_date);    
-                }
-                break;
 
             case 'register':
                 if(isset($_POST['register'])){
@@ -177,18 +175,21 @@
                 break;
             
             case "profile":
+                if(!isset($_SESSION['user'])){
+                    echo "<script>window.location.href='index.php?act=home'</script>";
+                }
                 if(isset($_POST['update_info'])){
                     $id = $_POST['id'];
                     $name = $_POST['name'];
                     $phone = $_POST['phone'];
+                    $password = $_POST['password'];
                     $dob = $_POST['dob'];
-                    $pincode = $_POST['pincode'];
                     $address = $_POST['address'];
                     $email = $_POST['email'];
                     $img = $_FILES["profile"]["name"];
                     $target_dir = "upload/";
                     $target_flie = $target_dir.basename($img);
-                    $update_info = update_info($id,$name,$phone,$dob,$pincode,$address,$email,$target_flie);
+                    $update_info = update_info($id,$name,$phone,$dob,$address,$email,$target_flie,$password);
                     if(move_uploaded_file($_FILES["profile"]["tmp_name"], $target_flie)){
                         // echo "upload ảnh thành công";
                     }else{
@@ -196,14 +197,33 @@
                     }   
                     $_SESSION['user'] = $update_info;
                     alert("success","Update successful. Please log in again !");
+                    echo "<script>window.location.href='index.php?act=home'</script>";
                 }
                 include "view/profile.php";
+                break;
+
+            case "bookings":
+                include "model/bookings.php";
+                if(!isset($_SESSION['user'])){
+                    echo "<script>window.location.href='index.php?act=home'</script>";
+                }
+                $booking_user = load_booking_user($_SESSION['user']['id']);
+                // echo '<pre>';
+                // print_r($booking_user);
+                include 'view/bookings.php';
                 break;
             
 
             default:
             include "view/home.php";
             break;
+
+            case "thanks":
+                if(!isset($_SESSION['user'])){
+                    echo "<script>window.location.href='index.php?act=home'</script>";
+                }
+                include 'view/thanks.php';
+                break;
         }
     }else{
         include "view/home.php";
