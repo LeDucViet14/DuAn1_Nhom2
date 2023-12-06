@@ -45,7 +45,7 @@ session_start();
       $_SESSION['admin'] = $check_admin;
       print_r($_SESSION['admin']);
       alert("success", "Login success!");
-      header("location: index.php");
+      header("location: index.php?act=bookings");
     } else {
       alert("error", "Login failed!");
     }

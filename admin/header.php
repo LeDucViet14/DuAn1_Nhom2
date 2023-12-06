@@ -14,7 +14,7 @@
                      <div class="collapse navbar-collapse flex-column align-items-stretch mt-2" id="adminDropdown">
                          <ul class="nav nav-pills flex-column">
                              <li class="nav-item">
-                                 <a class="nav-link text-white" href="#">Dashboard</a>
+                                 <a class="nav-link text-white" href="index.php?act=bookings">Bookings</a>
                              </li>
                              <li class="nav-item">
                                  <a class="nav-link text-white" href="index.php?act=room_type">Rooms Type</a>

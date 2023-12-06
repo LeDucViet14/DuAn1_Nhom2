@@ -57,7 +57,7 @@
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-lg-end">
                                         <li><a href="./index.php?act=profile" class="dropdown-item">Profile</a></li>
-                                        <li><a href="" class="dropdown-item">Booking</a></li>
+                                        <li><a href="./index.php?act=bookings" class="dropdown-item">Booking</a></li>
                                         <li><a href="./index.php?act=logout" class="dropdown-item">Logout</a></li>
                                     </ul>
                                 </div>
