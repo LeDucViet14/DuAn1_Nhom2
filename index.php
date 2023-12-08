@@ -19,6 +19,7 @@
     $all_room = loadall_room();
     $facilities = loadall_facities();
     include "view/header.php";
+    // print_r(date('Y-m-d H:i:s'));
     if(isset($_GET['act']) && ($_GET['act'] != "")){
         $act = $_GET['act'];
         switch ($act) {
@@ -58,7 +59,7 @@
                         // print_r($_GET['id']);
                         // print_r($_SESSION['user']['id']);
                     }
-
+                    // echo "<script>window.location.href='index.php?act=room_details'</script>";
                     include 'view/rooms_details.php';
                 }
                 break;
@@ -223,6 +224,10 @@
                     echo "<script>window.location.href='index.php?act=home'</script>";
                 }
                 include 'view/thanks.php';
+                break;
+
+            case "search":
+                include "view/search.php";
                 break;
         }
     }else{

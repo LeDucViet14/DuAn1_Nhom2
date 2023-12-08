@@ -21,7 +21,7 @@
                     $style ="";
                     foreach($booking_user as $bk){
                         extract($bk);
-                        // print_r($room_id);
+                        // print_r($bk);
                         if($booking_status == 'booked'){
                             $style ="bg-success";
                             // $review = '<button type="button" class="btn btn-outline-dark shadow-none" data-bs-toggle="modal" data-bs-target="#review">
@@ -45,6 +45,7 @@
                                 </p>
                                 <p>
                                     <b>Amount: </b> '.$amount.'<br>
+                                    <b>Amount: </b> '.$datetime.'<br>
                                 </p>
                                 <span class="mb-3 badge '.$style.'">'.$booking_status.'</span><br>
                             </div>

@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Facilities </title>
+    <title>Admin - Admins </title>
     <link rel="stylesheet" href="inc/links.php">
 </head>
 <body>
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-10 ms-auto p-4 overflow-hidden">
-                <h3 class="mb-4">FACILITIES</h3>
+                <h3 class="mb-4">ADMINS</h3>
 
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
