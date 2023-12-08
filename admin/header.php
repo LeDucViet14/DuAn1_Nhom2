@@ -13,6 +13,22 @@
                      </button>
                      <div class="collapse navbar-collapse flex-column align-items-stretch mt-2" id="adminDropdown">
                          <ul class="nav nav-pills flex-column">
+                         <?php
+                                if(isset($_SESSION['admin'])){
+                                    if($_SESSION['admin']['role']!=0){
+                                        echo '
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" href="index.php?act=dashboard">Dashboard</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link text-white" href="index.php?act=admin">Admin</a>
+                                        </li>
+                                        ';
+                                    }
+                                    
+                                }
+                             ?>
+                            
                              <li class="nav-item">
                                  <a class="nav-link text-white" href="index.php?act=bookings">Bookings</a>
                              </li>
@@ -25,18 +41,7 @@
                              <li class="nav-item">
                                  <a class="nav-link text-white" href="index.php?act=rooms">Rooms</a>
                              </li>
-                             <?php
-                                if(isset($_SESSION['admin'])){
-                                    if($_SESSION['admin']['role']!=0){
-                                        echo '
-                                        <li class="nav-item">
-                                            <a class="nav-link text-white" href="index.php?act=admin">Admin</a>
-                                        </li>
-                                        ';
-                                    }
-                                    
-                                }
-                             ?>
+                            
                              
                              <li class="nav-item">
                                  <a class="nav-link text-white" href="index.php?act=facilities">Facilities</a>

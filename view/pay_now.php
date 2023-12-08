@@ -1,7 +1,9 @@
 <?php
     session_start();
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
     include '../model/pdo.php';
     include '../model/bookings.php';
+    include '../model/rooms.php';
     if(isset($_POST['payUrl'])){
         function execPostRequest($url, $data)
         {
@@ -73,7 +75,9 @@
             // print_r($_POST['checkout']);
             // print_r($_POST['checkin']);
             // print_r($_SESSION['room']['id']);
-            insert_booking($_SESSION['room']['id'], $_POST['checkin'], $_POST['checkout'], $_SESSION['user']['id'], $_SESSION['room']['payment']);
-
+            insert_booking($_SESSION['room']['id'], $_POST['checkin'], $_POST['checkout'], $_SESSION['user']['id'], $_SESSION['room']['payment'],date('Y-m-d H:i:s'));
+            update_room_status($_SESSION['room']['id']);
     }
+    // $one_room = load_one_room($_SESSION['room']['id']);
+    // print_r($one_room);
 ?>

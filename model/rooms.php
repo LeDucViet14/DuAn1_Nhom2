@@ -81,24 +81,29 @@
         return $result;
     }
 
-    // function update_room($name,$id_room_type,$idroom){
-    //     $sql = "UPDATE `rooms` SET `name`='$name',`id_room_type`='$id_room_type'
-    //     WHERE id = $idroom";
-    //     pdo_execute($sql);
-    // }
-
-    function update_room_facilities($facility_id, $room_id){
-        $sql = "UPDATE `room_facilities` SET `facilities_id`='$facility_id' WHERE `room_id`='$room_id'";
-        pdo_execute($sql);
-    }
-
-    function update_room_features($feature_id, $room_id){
-        $sql = "UPDATE `room_features` SET `features_id`='$feature_id' WHERE `room_id`='$room_id'";
-        pdo_execute($sql);
-    }
-
     function load_room_type(){
         $sql = "SELECT * FROM `room_type` WHERE 1";
+        $result = pdo_query($sql);
+        return $result;
+    }
+
+    function update_room_status($id){
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $date = date('Y-m-d H:i:s');
+        $sql = "UPDATE `rooms` SET `status`='1',`datetime`='$date'  WHERE `id`='$id'";
+        pdo_execute($sql);
+    }
+
+    function total_rooms(){
+        $sql = "SELECT COUNT(*) as total_room FROM `rooms`";
+        $result = pdo_query($sql);
+        return $result;
+    }
+
+    function total_rooms_booked(){
+        $start_date = date('Y-m-01');
+        $end_date = date('Y-m-t');
+        $sql = "SELECT COUNT(*) as total_room_booked FROM `rooms` WHERE status = '1' and datetime BETWEEN '$start_date' AND '$end_date'";
         $result = pdo_query($sql);
         return $result;
     }

@@ -60,7 +60,7 @@
           }else{
             // echo "upload ảnh không thành công";
           }
-          header("location: index.php?act=rooms");
+          echo "<script>window.location.href='index.php?act=rooms'</script>";
         }
         break;
 
@@ -98,7 +98,8 @@
               // echo "upload ảnh không thành công";
           }
  
-              header("location: index.php?act=rooms");
+              // header("location: index.php?act=rooms");
+              echo "<script>window.location.href='index.php?act=rooms'</script>";
               alert("success","Update room successfully!");
           }
         break;
@@ -106,7 +107,8 @@
         case "delete_room":
           if(isset($_GET['id']) && $_GET['id'] > 0){
               delete_room($_GET['id']);
-              header("location: index.php?act=rooms");
+              // header("location: index.php?act=rooms");
+              echo "<script>window.location.href='index.php?act=rooms'</script>";
           }
           break;
 
@@ -118,7 +120,8 @@
           if(isset($_POST['add_room_type'])){
             $name = $_POST['name'];
             insert_room_type($name);
-            header("location: index.php?act=room_type");
+            // header("location: index.php?act=room_type");
+            echo "<script>window.location.href='index.php?act=room_type'</script>";
           }
           break;
 
@@ -134,14 +137,16 @@
             $name = $_POST['name'];
             $id = $_POST['room_type_id'];
             update_room_type($name, $id);
-            header("location: index.php?act=room_type");
+            // header("location: index.php?act=room_type");
+            echo "<script>window.location.href='index.php?act=room_type'</script>";
           }
           break;
 
         case "delete_room_type":
           if(isset($_GET['id']) && $_GET['id']>0){
             delete_room_type($_GET['id']);
-            header("location: index.php?act=room_type");
+            // header("location: index.php?act=room_type");
+            echo "<script>window.location.href='index.php?act=room_type'</script>";
           }
           break;
         
@@ -163,14 +168,16 @@
                 // echo "upload ảnh không thành công";
             }
             insert_facilities($name, $target_flie, $description);
-            header('location: index.php?act=facilities');
+            // header('location: index.php?act=facilities');
+            echo "<script>window.location.href='index.php?act=facilities'</script>";
           }
           break;
 
         case "delete_facilities":
           if(isset($_GET['id']) && $_GET['id']>0){
             delete_facilities($_GET['id']);
-            header('location: index.php?act=facilities');
+            // header('location: index.php?act=facilities');
+            echo "<script>window.location.href='index.php?act=facilities'</script>";
           }
           break;
         
@@ -195,7 +202,8 @@
             }else{
                 // echo "upload ảnh không thành công";
             }
-            header('location: index.php?act=facilities');
+            // header('location: index.php?act=facilities');
+            echo "<script>window.location.href='index.php?act=facilities'</script>";
           }
           break;
 
@@ -215,13 +223,15 @@
             foreach($listAdmin as $admin){
               if($admin['admin_name'] == $name){
                 $ischeck = false;
-                header("location: index.php?act=admin");
+                // header("location: index.php?act=admin");
+                echo "<script>window.location.href='index.php?act=admin'</script>";
                 alert("error","This admin account already exists !");
               }
             }
             if($ischeck){
               insert_admin($name, $password, $role);
-              header("location: index.php?act=admin");
+              // header("location: index.php?act=admin");
+              echo "<script>window.location.href='index.php?act=admin'</script>";
             }
           }
           break;
@@ -229,7 +239,9 @@
         case "delete_admin":
           if(isset($_GET['id']) && $_GET['id'] > 0){
             delete_admin($_GET['id']);
-            header("location: index.php?act=admin");
+            // header("location: index.php?act=admin");
+            echo "<script>window.location.href='index.php?act=admin'</script>";
+
           }
           break;
 
@@ -248,7 +260,8 @@
             $role = $_POST['role'];
             $id_admin = $_POST['id_admin'];
             update_admin($id_admin, $name, $password, $role);
-            header("location: index.php?act=admin");
+            // header("location: index.php?act=admin");
+            echo "<script>window.location.href='index.php?act=admin'</script>";
           }
           break;
         //comments
@@ -273,30 +286,39 @@
         case "agree_booking":
           if(isset($_GET['id']) && $_GET['id'] > 0){
             agree_booking_status($_GET['id']);
-            header('location: index.php?act=bookings');
+            // header('location: index.php?act=bookings');
+            echo "<script>window.location.href='index.php?act=bookings'</script>";
           }
           break;
 
         case "cancel_booking":
           if(isset($_GET['id']) && $_GET['id'] > 0){
             cancel_booking_status($_GET['id']);
-            header('location: index.php?act=bookings');
+            // header('location: index.php?act=bookings');
+            echo "<script>window.location.href='index.php?act=bookings'</script>";
           }
           break;
 
         case "again_booking":
           if(isset($_GET['id']) && $_GET['id'] > 0){
             again_booking_status($_GET['id']);
-            header('location: index.php?act=bookings');
+            // header('location: index.php?act=bookings');
+            echo "<script>window.location.href='index.php?act=bookings'</script>";
           }
+          break;
+        
+          //dashboard
+        case "dashboard":
+          $total_rooms = total_rooms();
+          $total_rooms_booked = total_rooms_booked();
+          include 'dashboard/list.php';
           break;
 
 
 
 
 
-
-
+        // settings
       case 'settings':
         $general_settings = loadall_general_settings();
         $contact = loadContact();

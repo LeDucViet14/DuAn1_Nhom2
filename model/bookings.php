@@ -21,7 +21,7 @@
     
 
     function load_booking_user($id){
-        $sql = "SELECT checkin,checkout,rooms.price, us.id, rooms.name,amount,booking_status,room_id FROM `bookings` as bk
+        $sql = "SELECT checkin,checkout,rooms.price, us.id, rooms.name,amount,booking_status,room_id,datetime FROM `bookings` as bk
         INNER JOIN user_cred as us ON bk.id_user=us.id
         INNER JOIN rooms ON bk.room_id=rooms.id
         WHERE bk.id_user = '$id' order by id desc";
@@ -44,8 +44,31 @@
         pdo_execute($sql);
     }
 
-    function insert_booking($room_id, $checkin, $checkout, $id_user, $amount){
-        $sql = "INSERT INTO `bookings`(`room_id`, `checkin`, `checkout`, `id_user`, `amount`) VALUES ('$room_id', '$checkin', '$checkout', '$id_user', '$amount')";
+    function insert_booking($room_id, $checkin, $checkout, $id_user, $amount,$datetime){
+        $sql = "INSERT INTO `bookings`(`room_id`, `checkin`, `checkout`, `id_user`, `amount`,`datetime`) VALUES ('$room_id', '$checkin', '$checkout', '$id_user', '$amount', '$datetime')";
         pdo_execute($sql);
+    }
+
+    function load_one_rooms($id){
+        $sql = "SELECT * FROM `rooms` WHERE id = '$id'";
+        $result = pdo_query_one($sql);
+        return $result;
+    }
+
+    function total_bookings($condition){
+        $sql = 
+        "SELECT COUNT(id) as total_bookings,
+        SUM(amount) as total_atm,
+        
+        COUNT(CASE WHEN booking_status='booked' THEN 1 END) as active_bookings,
+        SUM(CASE WHEN booking_status='booked' THEN amount END) as active_atm,
+        
+        COUNT(CASE WHEN booking_status='cancel' THEN 1 END) as cancelled_bookings,
+        SUM(CASE WHEN booking_status='cancel' THEN amount END) as cancelled_atm
+        
+        FROM `bookings` $condition";
+
+        $result = pdo_query($sql);
+        return $result;
     }
 ?>
