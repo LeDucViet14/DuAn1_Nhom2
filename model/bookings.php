@@ -21,7 +21,7 @@
     
 
     function load_booking_user($id){
-        $sql = "SELECT checkin,checkout,rooms.price, us.id, rooms.name,amount,booking_status,room_id,datetime FROM `bookings` as bk
+        $sql = "SELECT checkin,checkout,rooms.price, us.id, rooms.name,amount,booking_status,room_id,bk.datetime FROM `bookings` as bk
         INNER JOIN user_cred as us ON bk.id_user=us.id
         INNER JOIN rooms ON bk.room_id=rooms.id
         WHERE bk.id_user = '$id' order by id desc";

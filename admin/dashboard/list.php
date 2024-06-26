@@ -112,6 +112,7 @@
         function booking_analytics(period=1){
             let xhr = new XMLHttpRequest();
             xhr.open("POST","../ajax/dashboard.php",true);
+            
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
             xhr.onload = function(){

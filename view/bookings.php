@@ -45,7 +45,7 @@
                                 </p>
                                 <p>
                                     <b>Amount: </b> '.$amount.'<br>
-                                    <b>Amount: </b> '.$datetime.'<br>
+                                    <b>Datetime: </b> '.$datetime.'<br>
                                 </p>
                                 <span class="mb-3 badge '.$style.'">'.$booking_status.'</span><br>
                             </div>

@@ -379,15 +379,7 @@
             $address = $_POST['address'];
             $email = $_POST['email'];
             $password = $_POST['password'];
-            $img = $_FILES["profile"]["name"];
-            $target_dir = "../upload/";
-            $target_file = $target_dir . basename($img);
-            $update_user = update_user($id, $name, $phone, $dob, $address, $email, $password, $target_file);
-            if (move_uploaded_file($_FILES["profile"]["tmp_name"], $target_file)) {
-              // Ảnh đã được tải lên thành công
-            } else {
-              // Lỗi khi tải ảnh lên
-            }
+            $update_user = update_user($id, $name, $phone, $dob, $address, $email, $password);
           }
           $list_user = loadall_user();
           include "./users/users.php";

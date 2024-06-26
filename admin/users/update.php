@@ -45,27 +45,13 @@ if (is_array($user)) {
                                         <label class="form-label">Email</label>
                                         <input name="email" type="text" value="<?= $email ?>" class=" form-control shadow-none" required>
                                     </div>
-                                </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-4 mb-5 px-4">
-                                <div class="bg-white p-3 p-md rounded shadow-sm">
-                                    <h5 class="mb-3 fw-bold">Picture</h5>
-                                    <img src="<?= $img ?>" class="img-fluid mb-3" alt="" required>
-                                    <label class="form-label">New Picture</label>
-                                    <input name="profile" type="file" class="mb-4 form-control shadow-none">
-                                </div>
-                            </div>
-                            <div class="col-8 mb-5 px-4">
-                                <h5 class="mb-3 fw-bold">Password</h5>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
+                                    <div class="col-md-4 mb-3">
                                         <label class="form-label">Password</label>
                                         <input name="password" type="text" value="<?= $password ?>" class="form-control shadow-none" required>
                                     </div>
                                 </div>
-                            </div>
                         </div>
+                        
                         <input type="hidden" name="id" value="<?= $id ?>">
                         <input type="submit" value="Save Changes" name="capnhat" class="btn custom-bg border-0 m-3 btn-dark shadow-none">
 
@@ -76,7 +62,7 @@ if (is_array($user)) {
         </div>
     </div>
     </div>
-    <?php require('inc/scripts.php');
+    <?php require('inc/scripts.php')?>;
 </body>
 
 </html>

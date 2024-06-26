@@ -16,9 +16,9 @@ function delete_user($id)
     $sql = "DELETE FROM user_cred WHERE id=" . $id;
     pdo_execute($sql);
 }
-function update_user($id, $name, $phone, $dob, $address, $email, $password, $target_file)
+function update_user($id, $name, $phone, $dob, $address, $email, $password)
 {
-    $sql = "UPDATE `user_cred` SET `name`='$name', `email`='$email', `address`='$address', `phonenum`='$phone', `dob`='$dob', `password`='$password', `profile`='$target_file' 
+    $sql = "UPDATE `user_cred` SET `name`='$name', `email`='$email', `address`='$address', `phonenum`='$phone', `dob`='$dob', `password`='$password' 
             WHERE id = '$id'";
     return pdo_execute($sql); // Thêm return true; để trả về giá trị
 }
